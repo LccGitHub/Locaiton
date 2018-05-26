@@ -1,8 +1,8 @@
-#GPS 初始化流程#
+# GPS 初始化流程 #
 
-##LocationManager--modem流程分析##
+## LocationManager--modem流程分析 ##
 
-###1.1 LocationManagerService.java###
+### 1.1 LocationManagerService.java ###
 该service类启动后，<code>void systemRuning()</code>会被调用,主要是加载provider已经启动导航
 <pre><code>
 void systemRunning() {
@@ -58,7 +58,7 @@ void updateProviderListenersLocked(String provider, boolean enabled) {
 </code></pre>
 
 
-###1.2 以GnssLocationProvider为例分析provider的实现###
+### 1.2 以GnssLocationProvider为例分析provider的实现 ###
 
 该<code>enable()</code>主要是发送消息给自己的线程处理
 <pre><code>
@@ -111,7 +111,7 @@ public void handleEnable() {
 </code></pre>
 
 
-###1.3 JNI代码com_android_server_location_GnssLocationProvider.cpp实现###
+### 1.3 JNI代码com_android_server_location_GnssLocationProvider.cpp实现 ###
 
 <code>native_init()</code>其实就是<code>android_location_GnssLocationProvider_init()</code>
 该函数主要是注册HAL的callback函数
