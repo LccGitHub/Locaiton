@@ -123,7 +123,7 @@ static jboolean android_location_GnssLocationProvider_start(JNIEnv* /* env */, j
 loc.cpp
 <code>sGpsInterface->start</code>实际上就是<code>loc_start()</code>
 在HAL层启动的时候会创建一个thread即<code>MsgTask::run()</code>用于接收消息
-在线程中使用了信号量的机制，线程一直等待通过<code>pthread_cond_wait</code>
+在线程中使用了条件变量的机制，线程一直等待通过<code>pthread_cond_wait</code>
 发送消息的时候只要<code>pthread_cond_signal</code>,接收线程会被唤醒处理消息
 squence图如下
 
